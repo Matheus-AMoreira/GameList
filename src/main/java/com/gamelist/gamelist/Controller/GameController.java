@@ -1,10 +1,12 @@
 package com.gamelist.gamelist.Controller;
 
+import com.gamelist.gamelist.DTO.GameDTO;
 import com.gamelist.gamelist.DTO.GameMinDTO;
 import com.gamelist.gamelist.Entities.Game;
 import com.gamelist.gamelist.Service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,4 +25,11 @@ public class GameController {
         List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO(x)).toList();
         return dto;
     }
+
+    @GetMapping(value = "/{id}")
+    public GameDTO findById(@PathVariable Long id) {
+        GameDTO dto = gameService.findById(id);
+        return dto;
+    }
+
 }
