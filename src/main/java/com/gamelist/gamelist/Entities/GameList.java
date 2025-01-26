@@ -1,8 +1,12 @@
 package com.gamelist.gamelist.Entities;
 
-import jakarta.persistence.*;
-
 import java.util.Objects;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_game_list")
@@ -13,9 +17,12 @@ public class GameList {
     private Long id;
     private String name;
 
-    public GameList(String name, Long id, Integer position) {
-        this.name = name;
+    public GameList() {
+    }
+
+    public GameList(Long id, String name) {
         this.id = id;
+        this.name = name;
     }
 
     public Long getId() {
@@ -35,15 +42,19 @@ public class GameList {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        GameList gameList = (GameList) o;
-        return Objects.equals(id, gameList.id);
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        GameList other = (GameList) obj;
+        return Objects.equals(id, other.id);
     }
 }
