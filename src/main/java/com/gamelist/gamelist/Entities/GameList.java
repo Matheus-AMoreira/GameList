@@ -13,7 +13,7 @@ public class GameList {
     private Long id;
     private String name;
 
-    public GameList(String name, Long id) {
+    public GameList(String name, Long id, Integer position) {
         this.name = name;
         this.id = id;
     }
