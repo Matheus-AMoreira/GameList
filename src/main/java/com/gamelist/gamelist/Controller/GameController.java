@@ -2,7 +2,6 @@ package com.gamelist.gamelist.Controller;
 
 import com.gamelist.gamelist.DTO.GameDTO;
 import com.gamelist.gamelist.DTO.GameMinDTO;
-import com.gamelist.gamelist.Entities.Game;
 import com.gamelist.gamelist.Service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
